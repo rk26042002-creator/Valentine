@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Valentine’s Day 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      position: relative;
+      height: 80px;
+    }
+
+    button {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: absolute;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+      left: 50%;
+      transform: translateX(-120%);
+    }
+
+    #noBtn {
+      background: #ffffff;
+      color: #ff4d6d;
+      left: 50%;
+      transform: translateX(20%);
+    }
+
+    #message {
+      margin-top: 25px;
+      font-size: 1.4rem;
+      display: none;
+    }
+
+    .flower {
+      position: absolute;
+      bottom: -100px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at center, #ff4d6d 40%, #ff8fab 41%);
+      border-radius: 50%;
+      animation: bloom 2s ease-out forwards;
+      display: none;
+    }
+
+    @keyframes bloom {
+      0% {
+        transform: scale(0);
+        bottom: -100px;
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        bottom: 50%;
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Will you be my Valentine? 💖</h1>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes 💕</button>
+      <button id="noBtn">No 😅</button>
+    </div>
+
+    <div id="message">
+      Happy Valentine’s Day wifeee 😘💐  
+      <br />My heart is forever yours 💖
+    </div>
+  </div>
+
+  <div class="flower" id="flower"></div>
+
+  <!-- 🔊 Sound Effects -->
+  <audio id="yesSound" preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2f2a3c0b92.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="noSound" preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_5c5f1d7c8a.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const message = document.getElementById("message");
+    const flower = document.getElementById("flower");
+    const yesSound = document.getElementById("yesSound");
+    const noSound = document.getElementById("noSound");
+
+    yesBtn.addEventListener("click", () => {
+      yesSound.play();
+      message.style.display = "block";
+      flower.style.display = "block";
+    });
+
+    noBtn.addEventListener("mouseover", () => {
+      noSound.currentTime = 0;
+      noSound.play();
+      const x = Math.random() * 250 - 125;
+      const y = Math.random() * 80 - 40;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
+</body>
+</html>
+
